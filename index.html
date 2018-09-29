@@ -1,37 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./animate.css">
   <title>Document</title>
 </head>
-
+<style>
+  body {
+    padding: 0;
+    margin: 0;  
+  }
+  div:nth-child(odd) {
+    height: 200px;
+    width: 300px;
+    background-color: #abf;
+    opacity: 0;
+    transition: opacity 0.5s 0.3s;
+  }
+  div:nth-child(even) {
+    height: 200px;
+    width: 360px;
+    background-color: #fba;
+    opacity: 0;
+    transition: opacity 0.5s 0.33s;
+  }
+  .bg {
+    background-color: #bfa!important;
+  }
+  .opc {
+    opacity: 1!important;
+  }
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: inline-block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+</style>
 <body>
-  <div id="test" style="width:1px;height:2px;background:#dab;">0%</div>
-  <input type="button" value="Run" id="run"/>
+  <div class="box1 animated item">1</div>
+  <div class="box2 animated item">2</div>
+  <div class="box3 animated item">3</div>
+  <div class="box4 animated item">4</div>
+  <div class="box5 animated item">5</div>
+  <div class="box6 animated item">6</div>
+  <div class="box7 animated item">7</div>
+  <div class="box8 animated item">8</div>
+  <div class="box9 animated item">9</div>
+  <div class="box10 animated item">10</div>
+  <div class="box11 animated item">11</div>
+  <div class="box12 animated item">12</div>
+  <div class="box13 animated item">13</div>
+  <div class="box14 animated item">14</div>
+  <div class="box15 animated item">15</div>
+  <div class="box16 animated item">16</div>
+  <div class="box17 animated item">17</div>
+  <div class="box18 animated item">18</div>
+  <div class="box19 animated item">19</div>
+  <div class="box20 animated item">20</div>
 </body>
-
 </html>
 <script>
-  window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame;
-  var start = null;
-  var ele = document.getElementById("test");
-  var progress = 0;
+  let box = document.querySelectorAll('.item')
+  console.log(box);
+  console.log(window);
+  console.log(window.innerHeight,'item');
+  let wh = window.innerHeight
+  let ws = window.scrollY || window.pageYOffset
+  
+  // box.forEach((item, i) => {
+  //     // console.log(item.offsetTop);
+      
+  //     if (item.offsetTop - window.innerHeight < 0) {
+  //       // console.log(i);
+  //       item.classList.add('bounceIn')
+  //     }
+      
+  //   })
+  box.forEach(item => {
 
-  function step(timestamp) {
-    if (progress < 100) {
-      progress += 1;
-      ele.style.width = progress + "%";
-      ele.innerHTML = progress + "%";
-      start=requestAnimationFrame(step);
+    if ((item.offsetTop  <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
+      item.classList.add("bounceIn",'opc')        
+    }else {
+      item.classList.remove("bounceIn", 'opc')        
     }
-  }
-  document.getElementById("run").addEventListener("click", function () {
-    ele.style.width = "1px";
-    progress = 0;
-    requestAnimationFrame(step);
   })
+  window.onscroll = function (t) {
+    let ws = window.scrollY || window.pageYOffset
+    // console.log(box[0].offsetTop,0);
+    // console.log(box[6].offsetTop,1);
+    // console.log(document.documentElement.scrollTop);
+    // console.log(window.pageYOffset);
+    // 超过顶部
+    // if (box[6].offsetTop < ws) {
+    //   console.log('超过顶部ooooo');
+      
+    // }else {
+    //   console.log('未超过顶部||||||');
+
+    // }
+    // // 未超过底部
+    // if (box[6].offsetTop < ws + wh) {
+    //   console.log('超过底部||||||');
+      
+    // }else {
+    //   console.log('为超过底部----');
+      
+    // }
+    box.forEach(item => {
+
+      if ((item.offsetTop <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
+        item.classList.add("bounceIn",'opc')        
+      }else {
+        item.classList.remove("bounceIn", 'opc')        
+      }
+    })
+    // console.log(ws,'ws');
+    // let eatH = ws + wh
+    // box.forEach((item, i) => {
+    //   // console.log(item.offsetTop);
+      
+    //   if ( item.offsetTop - eatH <= item.clientHeight) {
+    //     console.log(item.offsetTop , i , "of");
+    //     console.log(item.offsetTop - eatH,i);
+    //     // item.classList.add('bounceInLeft')
+
+    //   }else {
+    //     // item.classList.remove('bounceInLeft')
+
+    //   }
+      
+    // })
+  }
+    let list = [
+      { 
+        path: '/home',
+        name: 'home',
+        meta: { title: '概览', icon: 'el-icon-menu', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+      },
+      { 
+        path: '/panorama-manage', 
+        name: 'panorama-manage',
+        meta: { title: '漫游管理', icon: 'icon-vr_1', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+      },
+      { 
+        path: '/panorama-publish',
+        name: 'panorama-publish',
+        meta: { title: '漫游发布', icon: 'el-icon-upload2', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+      },
+      { 
+        path: '/panorama-collect',
+        name: 'panorama-collect',
+        meta: { title: '作品收藏', icon: 'icon-like', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+      },
+      { 
+        path: '/video-manage', 
+        name: 'video-manage',
+        meta: { title: '视频管理', icon: 'icon-live', group: '全景VR视频', groupIcon: 'icon-live' },
+      },
+      { 
+        path: '/video-publish',
+        name: 'video-publish',
+        meta: { title: '视频发布', icon: 'el-icon-upload2', group: '全景VR视频', groupIcon: 'icon-live' },
+      },
+    ]
+    let handleList = []
+    let flagArr = []
+
+    // list.map((item, i) => {
+    //   if (flagArr.indexOf(item.meta.group) == -1) {
+    //     flagArr.push(item.meta.group)
+    //     handleList.push([item])
+    //   }else{
+    //     handleList[flagArr.indexOf(item.meta.group)].push(item)
+    //   }
+    // })
+
 </script>
