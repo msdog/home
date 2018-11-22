@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 <style>
-  body {
+/*   body {
     padding: 0;
     margin: 0;  
   }
@@ -42,10 +42,24 @@
 }
 .clearfix {
   *zoom: 1;
-}
+} */
+      body,html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
 </style>
 <body>
-  <div class="box1 animated item">1</div>
+<!--   <div class="box1 animated item">1</div>
   <div class="box2 animated item">2</div>
   <div class="box3 animated item">3</div>
   <div class="box4 animated item">4</div>
@@ -64,123 +78,124 @@
   <div class="box17 animated item">17</div>
   <div class="box18 animated item">18</div>
   <div class="box19 animated item">19</div>
-  <div class="box20 animated item">20</div>
+  <div class="box20 animated item">20</div> -->
+   <iframe src="http://view.vgoyun.cn/#/panoview/51011"  frameborder="0"></iframe>
 </body>
 </html>
 <script>
-  let box = document.querySelectorAll('.item')
-  console.log(box);
-  console.log(window);
-  console.log(window.innerHeight,'item');
-  let wh = window.innerHeight
-  let ws = window.scrollY || window.pageYOffset
+//   let box = document.querySelectorAll('.item')
+//   console.log(box);
+//   console.log(window);
+//   console.log(window.innerHeight,'item');
+//   let wh = window.innerHeight
+//   let ws = window.scrollY || window.pageYOffset
   
-  // box.forEach((item, i) => {
-  //     // console.log(item.offsetTop);
+//   // box.forEach((item, i) => {
+//   //     // console.log(item.offsetTop);
       
-  //     if (item.offsetTop - window.innerHeight < 0) {
-  //       // console.log(i);
-  //       item.classList.add('bounceIn')
-  //     }
+//   //     if (item.offsetTop - window.innerHeight < 0) {
+//   //       // console.log(i);
+//   //       item.classList.add('bounceIn')
+//   //     }
       
-  //   })
-  box.forEach(item => {
+//   //   })
+//   box.forEach(item => {
 
-    if ((item.offsetTop  <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
-      item.classList.add("bounceIn",'opc')        
-    }else {
-      item.classList.remove("bounceIn", 'opc')        
-    }
-  })
-  window.onscroll = function (t) {
-    let ws = window.scrollY || window.pageYOffset
-    // console.log(box[0].offsetTop,0);
-    // console.log(box[6].offsetTop,1);
-    // console.log(document.documentElement.scrollTop);
-    // console.log(window.pageYOffset);
-    // 超过顶部
-    // if (box[6].offsetTop < ws) {
-    //   console.log('超过顶部ooooo');
+//     if ((item.offsetTop  <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
+//       item.classList.add("bounceIn",'opc')        
+//     }else {
+//       item.classList.remove("bounceIn", 'opc')        
+//     }
+//   })
+//   window.onscroll = function (t) {
+//     let ws = window.scrollY || window.pageYOffset
+//     // console.log(box[0].offsetTop,0);
+//     // console.log(box[6].offsetTop,1);
+//     // console.log(document.documentElement.scrollTop);
+//     // console.log(window.pageYOffset);
+//     // 超过顶部
+//     // if (box[6].offsetTop < ws) {
+//     //   console.log('超过顶部ooooo');
       
-    // }else {
-    //   console.log('未超过顶部||||||');
+//     // }else {
+//     //   console.log('未超过顶部||||||');
 
-    // }
-    // // 未超过底部
-    // if (box[6].offsetTop < ws + wh) {
-    //   console.log('超过底部||||||');
+//     // }
+//     // // 未超过底部
+//     // if (box[6].offsetTop < ws + wh) {
+//     //   console.log('超过底部||||||');
       
-    // }else {
-    //   console.log('为超过底部----');
+//     // }else {
+//     //   console.log('为超过底部----');
       
-    // }
-    box.forEach(item => {
+//     // }
+//     box.forEach(item => {
 
-      if ((item.offsetTop <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
-        item.classList.add("bounceIn",'opc')        
-      }else {
-        item.classList.remove("bounceIn", 'opc')        
-      }
-    })
-    // console.log(ws,'ws');
-    // let eatH = ws + wh
-    // box.forEach((item, i) => {
-    //   // console.log(item.offsetTop);
+//       if ((item.offsetTop <= ws + wh) && (item.offsetTop >= (ws - item.clientHeight))) {
+//         item.classList.add("bounceIn",'opc')        
+//       }else {
+//         item.classList.remove("bounceIn", 'opc')        
+//       }
+//     })
+//     // console.log(ws,'ws');
+//     // let eatH = ws + wh
+//     // box.forEach((item, i) => {
+//     //   // console.log(item.offsetTop);
       
-    //   if ( item.offsetTop - eatH <= item.clientHeight) {
-    //     console.log(item.offsetTop , i , "of");
-    //     console.log(item.offsetTop - eatH,i);
-    //     // item.classList.add('bounceInLeft')
+//     //   if ( item.offsetTop - eatH <= item.clientHeight) {
+//     //     console.log(item.offsetTop , i , "of");
+//     //     console.log(item.offsetTop - eatH,i);
+//     //     // item.classList.add('bounceInLeft')
 
-    //   }else {
-    //     // item.classList.remove('bounceInLeft')
+//     //   }else {
+//     //     // item.classList.remove('bounceInLeft')
 
-    //   }
+//     //   }
       
-    // })
-  }
-    let list = [
-      { 
-        path: '/home',
-        name: 'home',
-        meta: { title: '概览', icon: 'el-icon-menu', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
-      },
-      { 
-        path: '/panorama-manage', 
-        name: 'panorama-manage',
-        meta: { title: '漫游管理', icon: 'icon-vr_1', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
-      },
-      { 
-        path: '/panorama-publish',
-        name: 'panorama-publish',
-        meta: { title: '漫游发布', icon: 'el-icon-upload2', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
-      },
-      { 
-        path: '/panorama-collect',
-        name: 'panorama-collect',
-        meta: { title: '作品收藏', icon: 'icon-like', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
-      },
-      { 
-        path: '/video-manage', 
-        name: 'video-manage',
-        meta: { title: '视频管理', icon: 'icon-live', group: '全景VR视频', groupIcon: 'icon-live' },
-      },
-      { 
-        path: '/video-publish',
-        name: 'video-publish',
-        meta: { title: '视频发布', icon: 'el-icon-upload2', group: '全景VR视频', groupIcon: 'icon-live' },
-      },
-    ]
-    let handleList = []
-    let flagArr = []
+//     // })
+//   }
+//     let list = [
+//       { 
+//         path: '/home',
+//         name: 'home',
+//         meta: { title: '概览', icon: 'el-icon-menu', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+//       },
+//       { 
+//         path: '/panorama-manage', 
+//         name: 'panorama-manage',
+//         meta: { title: '漫游管理', icon: 'icon-vr_1', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+//       },
+//       { 
+//         path: '/panorama-publish',
+//         name: 'panorama-publish',
+//         meta: { title: '漫游发布', icon: 'el-icon-upload2', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+//       },
+//       { 
+//         path: '/panorama-collect',
+//         name: 'panorama-collect',
+//         meta: { title: '作品收藏', icon: 'icon-like', group: '全景VR漫游', groupIcon: 'icon-vr_1' },
+//       },
+//       { 
+//         path: '/video-manage', 
+//         name: 'video-manage',
+//         meta: { title: '视频管理', icon: 'icon-live', group: '全景VR视频', groupIcon: 'icon-live' },
+//       },
+//       { 
+//         path: '/video-publish',
+//         name: 'video-publish',
+//         meta: { title: '视频发布', icon: 'el-icon-upload2', group: '全景VR视频', groupIcon: 'icon-live' },
+//       },
+//     ]
+//     let handleList = []
+//     let flagArr = []
 
-    // list.map((item, i) => {
-    //   if (flagArr.indexOf(item.meta.group) == -1) {
-    //     flagArr.push(item.meta.group)
-    //     handleList.push([item])
-    //   }else{
-    //     handleList[flagArr.indexOf(item.meta.group)].push(item)
-    //   }
-    // })
+//     // list.map((item, i) => {
+//     //   if (flagArr.indexOf(item.meta.group) == -1) {
+//     //     flagArr.push(item.meta.group)
+//     //     handleList.push([item])
+//     //   }else{
+//     //     handleList[flagArr.indexOf(item.meta.group)].push(item)
+//     //   }
+//     // })
 
 </script>
