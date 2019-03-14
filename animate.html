@@ -16,11 +16,12 @@
 </html>
 <script>
   window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame;
+  window.msRequestAnimationFrame;
   var start = null;
   var ele = document.getElementById("test");
   var progress = 0;
-
+  console.log(document.cookie);
+  
   function step(timestamp) {
     if (progress < 100) {
       progress += 1;
